@@ -21,14 +21,17 @@ const styles = StyleSheet.create({
    
   },
   topcontainer: {
-
+    flex: 2,
+    alignContent: "flex-start"
       
   },
   
   tip: {
-height: 35,
-      
+
+    marginTop: 60,
   },
+
+
   
   simpleText: {
     marginTop: 10,
@@ -69,6 +72,19 @@ height: 35,
     inputcontainer: {
       flexDirection: 'row',
       alignItems: 'center',
+      justifyContent: "center",
+      marginBottom: 10,
+  },
+    totalcontainer: {
+      flexDirection: 'row',
+      alignItems: 'center',
+      justifyContent: "center",
+      gap: 10,
+  },
+    bottomcontainer: {
+     
+      alignItems: 'center',
+      justifyContent: "center",
   },
     $: {
      
@@ -85,6 +101,19 @@ height: 35,
       borderRadius: 5,
       borderColor: "#070707",
   },
+  totalAmount: {
+      backgroundColor: "#ebebeb",
+      height: 60,
+      width: 200,
+      borderWidth: 1.5,
+      borderRadius: 5.9,
+      borderColor: "#acd6ac",
+    justifyContent: "center",
+    fontSize: 32,
+    textAlign: "center",
+      
+
+  }
 });
 
 export default styles
