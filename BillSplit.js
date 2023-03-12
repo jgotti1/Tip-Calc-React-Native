@@ -1,30 +1,32 @@
 import React, { useState } from 'react';
 import { View, Text, TouchableOpacity } from 'react-native';
 
-const BillSplit = () => {
+const BillSplit = ({split, setSplit}) => {
   const [numberOfPeople, setNumberOfPeople] = useState(1);
 
   const increasePeople = () => {
     setNumberOfPeople(prevState => prevState + 1);
+    setSplit(numberOfPeople)
   };
 
   const decreasePeople = () => {
     if (numberOfPeople > 1) {
       setNumberOfPeople(prevState => prevState - 1);
+      setSplit(numberOfPeople)
     }
   };
 
   return (
     
       <View style={styles.splitContainer}>
-        <Text style={styles.titleBillSplit}>Split Bill</Text>
+        <Text style={styles.textstyle}>Split Bill</Text>
         <View style={styles.controls}>
           <View style={styles.buttonContainer}>
             <TouchableOpacity style={styles.splitButton} onPress={increasePeople}>
               <Text style={styles.buttonText}> + </Text>
             </TouchableOpacity>
           </View>
-          <Text style={styles.splitAmount} id="numberOfPeople">{numberOfPeople}</Text>
+          <Text style={styles.splitAmount}>{split}</Text>
           <View style={styles.buttonContainer}>
             <TouchableOpacity style={styles.splitButton} onPress={decreasePeople}>
               <Text style={styles.buttonText}> - </Text>
@@ -42,14 +44,11 @@ const styles = {
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
-    marginVertical: 20,
+    marginVertical: 5,
     paddingHorizontal: 20,
     width: '100%',
   },
-  // titleBillSplit: {
-  //   fontSize: 20,
-  //   fontWeight: 'bold',
-  // },
+
   controls: {
     flexDirection: 'row',
     alignItems: 'center',
@@ -67,22 +66,15 @@ const styles = {
     fontSize: 20,
     fontWeight: 'bold',
   },
+  textstyle: {
+    fontSize: 14,
+    fontWeight: 'bold',
+  },
   splitAmount: {
     fontSize: 20,
     fontWeight: 'bold',
   },
-  // totalContainer: {
-  //   alignItems: 'center',
-  // },
-  // totalDiv: {
-  //   flexDirection: 'row',
-  //   alignItems: 'baseline',
-  // },
-  // perPersonTotal: {
-  //   fontSize: 40,
-  //   fontWeight: 'bold',
-  //   marginLeft: 5,
-  // },
+
 };
 
 export default BillSplit;

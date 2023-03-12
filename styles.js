@@ -3,19 +3,16 @@ import { StyleSheet } from 'react-native';
 const styles = StyleSheet.create({
   wrapper: {
    flex: 1,
-    // backgroundColor: '#3d3d3d',
     alignItems: 'center',
     justifyContent: 'center',
-
 },
 
   container: {
     backgroundColor: '#bfecc1',
     borderWidth: 2,
-
     alignItems: 'center',
     justifyContent: 'center',
-    height: 500,
+    height: 570,
     borderRadius: 10,
     padding: 20,
    
@@ -26,13 +23,6 @@ const styles = StyleSheet.create({
       
   },
   
-  tip: {
-
-    marginTop: 60,
-  },
-
-
-  
   simpleText: {
     marginTop: 10,
     textAlign: "center",
@@ -41,8 +31,6 @@ const styles = StyleSheet.create({
   },
 
   heading: {
-
-      
       color: "#0c0c0c",
       fontSize: 46,
       height: 90,
@@ -63,10 +51,17 @@ const styles = StyleSheet.create({
     textShadowColor: "#9d9da7",
     textShadowRadius: 10,
     textShadowOffset: { width: 2, height: 2 },
-   
-
-
-
+  },
+  totaltext: {
+    
+    fontSize: 30,
+    textAlign: "center",
+    marginBottom: 10,
+    color: "#197a1e",
+    textShadowColor: "#9d9da7",
+    textShadowRadius: 10,
+    textShadowOffset: { width: 2, height: 2 },
+  
   },
   
     inputcontainer: {
@@ -80,7 +75,12 @@ const styles = StyleSheet.create({
       alignItems: 'center',
       justifyContent: "center",
       gap: 10,
+      marginTop: 20,
+      maxWidth: "95%",
+
   },
+
+
     bottomcontainer: {
      
       alignItems: 'center',
@@ -92,27 +92,70 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     color: '#333',
   },
+    textstyle: {
+    fontSize: 14,
+    fontWeight: 'bold',
+    color: '#333',
+  },
     
   billamount: {
       backgroundColor: "#ebebeb",
-      height: 50,
-      width: 250,
+      height: 60,
+      width: "85%",
       borderWidth: 1,
-      borderRadius: 5,
-      borderColor: "#070707",
+      borderRadius: 9,
+    borderColor: "#070707",
+      padding: 20,
   },
   totalAmount: {
       backgroundColor: "#ebebeb",
-      height: 60,
-      width: 200,
+      height: 70,
+      width:  280,
+      borderWidth: 3.5,
+      borderRadius: 13,
+      borderColor: "#89cc89",
+      justifyContent: "center",
+      fontSize: 32,
+      textAlign: "center",
+      shadowOffset: { width: 0, height: 6 },
+      shadowColor: "black",
+      shadowRadius: 5,
+      shadowOpacity: 0.2,
+    
+      
+  },
+  tipAmount: {
+      backgroundColor: "#ebebeb",
+      height: 50,
+      width:  175,
       borderWidth: 1.5,
-      borderRadius: 5.9,
+      borderRadius: 10,
       borderColor: "#acd6ac",
-    justifyContent: "center",
-    fontSize: 32,
-    textAlign: "center",
+      justifyContent: "center",
+      fontSize: 32,
+      textAlign: "center",
       
 
+  },
+  tiptext: {
+    fontSize: 24,
+    textShadowColor: "#9d9da7",
+    textShadowRadius: 5,
+    textShadowOffset: { width: 2, height: 2 },
+
+},
+
+  tipcontainer: {
+      flexDirection: 'row',
+      gap: 10,
+
+  },
+
+  tipbox: {
+    backgroundColor: "#ebebeb",
+    borderRadius: 20,
+    borderColor: "none", 
+    marginVertical: 9,
   }
 });
 
