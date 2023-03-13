@@ -4,8 +4,10 @@ import { StatusBar } from 'expo-status-bar';
 import { Text, View, TextInput, ImageBackground} from 'react-native';
 import styles from "./styles.js"
 import { useState } from "react"
-import BillSplit from './BillSplit.js';
-import TipPercent from "./TipPercent.js";
+import BillSplit from "./BillSplit";
+import TipPercent from "./TipPercent"
+
+
 
 
 
@@ -18,14 +20,30 @@ export default function App() {
   const [split, setSplit] = useState(1)
   
   const amountHandler = (amountInput) => {
-  setAmount(amountInput)
+  setAmount(Number(amountInput))
+}
+  const calculateBill = () => {
+    let split = Number(split)
+    let tip = (amount * tipPercentage)
+    let total = tip + amount
+   
+
+  if (roundUp) {
+    const roundedTipAmount = Math.ceil(tip);
+    total = roundedTipAmount + amount
+    setTipAmount(roundedTipAmount.toFixed(2));
+    setTotalAmount(total.toFixed(2))
+    
+  } else {
+   setTipAmount(tip.toFixed(2))
+    setTotalAmount(total.toFixed(2))
+  }
+
+  
 }
 
-  const calculateBill = () => {
-    console.log(tipPercentage)
-  }
   const handleReset = () => {
-    setAmount();
+    setAmount("");
     setTipPercentage(0);
     setTotalAmount(0.00);
     setTipAmount(0.00);
@@ -35,7 +53,7 @@ export default function App() {
 
     const handleRoundUp = () => {
     setRoundUp(!roundUp);
-    setTipAmount(Math.ceil(tipAmount));
+   
   };
 
 
@@ -60,7 +78,7 @@ export default function App() {
                     <Text style={styles.tiptext}>Tip:</Text>
                   <TextInput style={styles.tipAmount}>${tipAmount}</TextInput>
                 <HStack space={2}>
-                    <Checkbox value="true" accessibilityLabel="round up" onChange={handleRoundUp} isChecked={roundUp} />
+                    <Checkbox value="true" onChange={handleRoundUp} accessibilityLabel="round up"  isChecked={roundUp} />
                   <Text>Round-up</Text>
               </HStack>
                 </View>

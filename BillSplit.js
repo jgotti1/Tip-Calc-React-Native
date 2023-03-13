@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { View, Text, TouchableOpacity } from 'react-native';
+import styles from './styles';
 
 const BillSplit = ({split, setSplit}) => {
   const [numberOfPeople, setNumberOfPeople] = useState(1);
@@ -38,43 +39,8 @@ const BillSplit = ({split, setSplit}) => {
   );
 };
 
-const styles = {
 
-  splitContainer: {
-    flexDirection: 'row',
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginVertical: 5,
-    paddingHorizontal: 20,
-    width: '100%',
-  },
 
-  controls: {
-    flexDirection: 'row',
-    alignItems: 'center',
-  },
-  buttonContainer: {
-    backgroundColor: '#ddd',
-    borderRadius: 50,
-    marginHorizontal: 10,
-    padding: 5,
-  },
-  splitButton: {
-    // paddingHorizontal: 10,
-  },
-  buttonText: {
-    fontSize: 20,
-    fontWeight: 'bold',
-  },
-  textstyle: {
-    fontSize: 14,
-    fontWeight: 'bold',
-  },
-  splitAmount: {
-    fontSize: 20,
-    fontWeight: 'bold',
-  },
-
-};
+  
 
 export default BillSplit;

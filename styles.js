@@ -156,7 +156,42 @@ const styles = StyleSheet.create({
     borderRadius: 20,
     borderColor: "none", 
     marginVertical: 9,
-  }
+  }, splitContainer: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginVertical: 5,
+    paddingHorizontal: 20,
+    width: '100%',
+  },
+
+  controls: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  buttonContainer: {
+    backgroundColor: '#ddd',
+    borderRadius: 50,
+    marginHorizontal: 10,
+    padding: 5,
+  },
+  splitButton: {
+    // paddingHorizontal: 10,
+  },
+  buttonText: {
+    fontSize: 20,
+    fontWeight: 'bold',
+  },
+  textstyle: {
+    fontSize: 14,
+    fontWeight: 'bold',
+  },
+  splitAmount: {
+    fontSize: 20,
+    fontWeight: 'bold',
+  },
+
+
 });
 
 export default styles

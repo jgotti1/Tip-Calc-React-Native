@@ -2,7 +2,12 @@ import React from 'react'
 import { Select, Center, Box, CheckIcon, Text } from "native-base";
 import styles from "./styles.js"
 
-function TipPercent({setTipPercentage, tipPercentage}) {
+function TipPercent({ setTipPercentage, tipPercentage }) {
+  
+  const handlePercent = (itemValue) => {
+    setTipPercentage(Number(itemValue))
+  }
+
   return (
     <>
       <Center style={styles.tipcontainer}>
@@ -12,12 +17,12 @@ function TipPercent({setTipPercentage, tipPercentage}) {
                     bg: "green.100",
                     endIcon: <CheckIcon size="8" />
                   }} mt={0} onValueChange={itemValue => setTipPercentage(itemValue)}>
-                    <Select.Item label="10% Poor Service" value=".10" />
-                    <Select.Item label="15% Okay Service" value=".15" />
-                    <Select.Item label="20% Good Service" value=".20" />
-                    <Select.Item label="22% Very Good Service" value=".22" />
-                    <Select.Item label="25% Great Service" value=".22" />
-                    <Select.Item label="30% Exceptional Service" value=".30" />
+                    <Select.Item label="10% Poor Service" value={.10} />
+                    <Select.Item label="15% Okay Service" value={.15} />
+                    <Select.Item label="20% Good Service" value={.20} />
+                    <Select.Item label="22% Very Good Service" value={.22} />
+                    <Select.Item label="25% Great Service" value={.25} />
+                    <Select.Item label="30% Exceptional Service" value={.30} />
                   </Select>
 
                     </Box>
