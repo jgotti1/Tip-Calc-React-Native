@@ -1,20 +1,29 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { View, Text, TouchableOpacity } from 'react-native';
 import styles from './styles';
 
-const BillSplit = ({split, setSplit}) => {
-  const [numberOfPeople, setNumberOfPeople] = useState(1);
+const BillSplit = ({ split, setSplit, calculateBill, amount }) => {
+  
+  useEffect(() => {
+
+    if (amount !== "   enter bill amount...") {
+      
+      calculateBill();
+    }
+  }, [split]);
+ 
 
   const increasePeople = () => {
-    setNumberOfPeople(prevState => prevState + 1);
-    setSplit(numberOfPeople)
+    setSplit(split + 1)
+    
   };
 
   const decreasePeople = () => {
-    if (numberOfPeople > 1) {
-      setNumberOfPeople(prevState => prevState - 1);
-      setSplit(numberOfPeople)
+    console.log(split)
+    if (split > 1) {
+      setSplit(split -1 )
     }
+   
   };
 
   return (

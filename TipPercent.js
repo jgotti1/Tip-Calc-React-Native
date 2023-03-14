@@ -1,13 +1,15 @@
-import React from 'react'
+import {useEffect} from 'react'
 import { Select, Center, Box, CheckIcon, Text } from "native-base";
 import styles from "./styles.js"
 
-function TipPercent({ setTipPercentage, tipPercentage }) {
+function TipPercent({ setTipPercentage, tipPercentage, calculateBill}) {
   
-  const handlePercent = (itemValue) => {
-    setTipPercentage(Number(itemValue))
-  }
 
+    useEffect(() => {
+      calculateBill();
+    
+    }, [tipPercentage]);
+  
   return (
     <>
       <Center style={styles.tipcontainer}>

@@ -1,4 +1,4 @@
-import React from "react";
+import { useEffect } from "react";
 import { NativeBaseProvider, Checkbox, HStack, Button, Stack} from "native-base";
 import { StatusBar } from 'expo-status-bar';
 import { Text, View, TextInput, ImageBackground} from 'react-native';
@@ -6,12 +6,21 @@ import styles from "./styles.js"
 import { useState } from "react"
 import BillSplit from "./BillSplit";
 import TipPercent from "./TipPercent"
+import { useFonts } from 'expo-font';
+
 
 
 
 
 
 export default function App() {
+  useFonts({
+    'Roboto-Bold': require("./assets/fonts/Roboto-Bold.ttf"),
+    'Inter-Black': require("./assets/fonts/Inter-Black.otf"),
+  });
+
+  
+  
   const [amount, setAmount] = useState()
   const [tipPercentage, setTipPercentage] = useState(0)
   const [totalAmount, setTotalAmount] = useState(0.00)
@@ -19,27 +28,35 @@ export default function App() {
   const [roundUp, setRoundUp] = useState(false);
   const [split, setSplit] = useState(1)
   
+  useEffect(() => {
+      calculateBill();
+    console.log(roundUp)
+    }, [roundUp]);
+
   const amountHandler = (amountInput) => {
-  setAmount(Number(amountInput))
-}
+  setAmount(amountInput)
+  }
+  
+
+
   const calculateBill = () => {
-    let split = Number(split)
-    let tip = (amount * tipPercentage)
-    let total = tip + amount
-   
+    
+    let finalAmount = Number(amount)
+    let tip = (finalAmount * tipPercentage) / split
+    let total1 = tip + finalAmount
+    let total = total1 / split
+  
 
   if (roundUp) {
     const roundedTipAmount = Math.ceil(tip);
-    total = roundedTipAmount + amount
+    total = (roundedTipAmount + finalAmount) / split
     setTipAmount(roundedTipAmount.toFixed(2));
     setTotalAmount(total.toFixed(2))
     
   } else {
-   setTipAmount(tip.toFixed(2))
+    setTipAmount(tip.toFixed(2))
     setTotalAmount(total.toFixed(2))
   }
-
-  
 }
 
   const handleReset = () => {
@@ -52,8 +69,7 @@ export default function App() {
   }
 
     const handleRoundUp = () => {
-    setRoundUp(!roundUp);
-   
+      setRoundUp(!roundUp);
   };
 
 
@@ -72,11 +88,12 @@ export default function App() {
                     <TextInput style={styles.billamount} placeholder={"   enter bill amount..."} value={amount} onChangeText={amountHandler}/>       
                 </View>
                 <View style={styles.bottomcontainer}>
-                <BillSplit split={split} setSplit={setSplit} />
-                <TipPercent setTipPercentage={setTipPercentage} tipPercentage={tipPercentage} />
+                <BillSplit split={split} setSplit={setSplit} calculateBill={calculateBill} amount={amount}/>
+                <TipPercent setTipPercentage={setTipPercentage} tipPercentage={tipPercentage} calculateBill={calculateBill} />
                   <View style={styles.totalcontainer} >
                     <Text style={styles.tiptext}>Tip:</Text>
-                  <TextInput style={styles.tipAmount}>${tipAmount}</TextInput>
+                  {/* <TextInput style={styles.tipAmount}>${tipAmount}</TextInput> */}
+                  <Text style={styles.tipAmount}>${isNaN(tipAmount) ?  "0.00" : tipAmount}</Text>
                 <HStack space={2}>
                     <Checkbox value="true" onChange={handleRoundUp} accessibilityLabel="round up"  isChecked={roundUp} />
                   <Text>Round-up</Text>
@@ -84,7 +101,8 @@ export default function App() {
                 </View>
                   <View style={styles.totalcontainer} >
                     <Text style={styles.totaltext}>Total:</Text>
-                    <TextInput style={styles.totalAmount}>${totalAmount}</TextInput>
+                  <Text style={styles.totalAmount}> ${isNaN(totalAmount) ?  "0.00" : totalAmount}</Text>
+                  {/* <Text style={styles.totalAmount}> ${totalAmount}</Text> */}
                 </View>
                 </View>
             </View>
@@ -94,6 +112,7 @@ export default function App() {
                   </Button>
                 </Stack>
           </View>    
+          {split > 1 && <Text style={styles.splittext}>Tip and Total are split x{split}</Text>}
              <Stack mb="0" mt="10">
                   <Button size="sm" variant="outline" colorScheme="green" borderColor="green.500" rounded="lg" bg="white" onPress={handleReset}>
                     Reset Values
@@ -104,5 +123,4 @@ export default function App() {
     </>
   );
 }
-
 

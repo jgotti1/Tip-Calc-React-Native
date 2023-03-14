@@ -31,15 +31,16 @@ const styles = StyleSheet.create({
   },
 
   heading: {
-      color: "#0c0c0c",
-      fontSize: 46,
+      color: "#299729",
+      fontSize: 38,
       height: 90,
       textShadowColor: "#9d9da7",
       textShadowRadius: 10,
       textShadowOffset: { width: 2, height: 2 },
       borderStyle: "solid",
       borderBottomWidth: 2,
-      borderColor: "black"
+      borderColor: "#353434",
+      fontFamily: "Roboto-Bold"
   },
     
   title: {
@@ -53,11 +54,11 @@ const styles = StyleSheet.create({
     textShadowOffset: { width: 2, height: 2 },
   },
   totaltext: {
-    
-    fontSize: 30,
+    fontFamily: "Roboto-Bold",
+    fontSize: 26,
     textAlign: "center",
     marginBottom: 10,
-    color: "#197a1e",
+    // color: "#197a1e",
     textShadowColor: "#9d9da7",
     textShadowRadius: 10,
     textShadowOffset: { width: 2, height: 2 },
@@ -104,7 +105,7 @@ const styles = StyleSheet.create({
       width: "85%",
       borderWidth: 1,
       borderRadius: 9,
-    borderColor: "#070707",
+      borderColor: "#070707",
       padding: 20,
   },
   totalAmount: {
@@ -138,10 +139,12 @@ const styles = StyleSheet.create({
 
   },
   tiptext: {
-    fontSize: 24,
+    fontSize: 20,
     textShadowColor: "#9d9da7",
     textShadowRadius: 5,
     textShadowOffset: { width: 2, height: 2 },
+    fontFamily: "Roboto-Bold",
+ 
 
 },
 
@@ -156,7 +159,9 @@ const styles = StyleSheet.create({
     borderRadius: 20,
     borderColor: "none", 
     marginVertical: 9,
-  }, splitContainer: {
+  },
+  
+  splitContainer: {
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
@@ -191,6 +196,16 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
 
+  splittext: {
+    fontFamily: "Inter-Black",
+    fontSize: 24,
+    color: "#333131",
+    textShadowColor: "#fff",
+    textShadowRadius: 2,
+    textShadowOffset: { width: -2, height: -2 },
+    backgroundColor: "transparent",
+    fontWeight: 'bold',
+}
 
 });
 
