@@ -40,7 +40,7 @@ const styles = StyleSheet.create({
       borderStyle: "solid",
       borderBottomWidth: 2,
       borderColor: "#353434",
-      fontFamily: "Roboto-Bold"
+      fontFamily: "RadicalFortuneDemoRegular-ZV1Jl"
   },
     
   title: {

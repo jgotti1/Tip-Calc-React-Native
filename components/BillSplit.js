@@ -19,7 +19,6 @@ const BillSplit = ({ split, setSplit, calculateBill, amount }) => {
   };
 
   const decreasePeople = () => {
-    console.log(split)
     if (split > 1) {
       setSplit(split -1 )
     }
