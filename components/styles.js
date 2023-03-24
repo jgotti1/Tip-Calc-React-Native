@@ -58,7 +58,6 @@ const styles = StyleSheet.create({
     fontSize: 26,
     textAlign: "center",
     marginBottom: 10,
-    // color: "#197a1e",
     textShadowColor: "#9d9da7",
     textShadowRadius: 10,
     textShadowOffset: { width: 2, height: 2 },
@@ -76,7 +75,7 @@ const styles = StyleSheet.create({
       alignItems: 'center',
       justifyContent: "center",
       gap: 10,
-      marginTop: 20,
+      marginTop: 30,
       maxWidth: "95%",
 
   },
@@ -115,15 +114,12 @@ const styles = StyleSheet.create({
       borderWidth: 3.5,
       borderRadius: 13,
       borderColor: "#89cc89",
-      justifyContent: "center",
-      fontSize: 32,
+      fontSize: 40,
       textAlign: "center",
       shadowOffset: { width: 0, height: 6 },
       shadowColor: "black",
       shadowRadius: 5,
-      shadowOpacity: 0.2,
-    
-      
+      shadowOpacity: 0.2, 
   },
   tipAmount: {
       backgroundColor: "#ebebeb",
@@ -198,14 +194,47 @@ const styles = StyleSheet.create({
 
   splittext: {
     fontFamily: "Inter-Black",
-    fontSize: 24,
+    fontSize: 15,
     color: "#333131",
     textShadowColor: "#fff",
-    textShadowRadius: 2,
-    textShadowOffset: { width: -2, height: -2 },
+    textShadowRadius: 1,
+    textShadowOffset: { width: -3, height: -2 },
     backgroundColor: "transparent",
     fontWeight: 'bold',
-}
+  },
+  
+  // version and copyright styles 
+  topLineContainer: {
+    flexDirection: 'row',
+    justifyContent: "space-between",
+    alignItems: 'center',
+    paddingHorizontal: 12,
+    
+  },
+  resetContainer: {
+    justifyContent: "center",
+    alignItems: "center",
+
+  
+  },
+
+  versionText: {
+    fontSize: 10,
+   color: '#323232',
+  },
+
+  copyright: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  
+  linkText: {
+    fontSize: 9,
+    color: '#323232',
+    marginLeft: 5,
+  },
+
+// End section ***************
 
 });
 

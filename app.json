@@ -1,8 +1,8 @@
 {
   "expo": {
-    "name": "Tip-Calc",
-    "slug": "Tip-Calc",
-    "version": "1.0.0",
+    "name": "Simple Tip-Calc",
+    "slug": "SimpleTipCalc",
+    "version": "1.2.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
@@ -15,7 +15,9 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "buildNumber": "1.2.0",
+      "supportsTablet": true,
+      "bundleIdentifier": "com.Margotti.SimpleTipCalc"
     },
     "android": {
       "adaptiveIcon": {
@@ -25,6 +27,11 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "a0eedac6-9ab8-4782-9111-d4c93a7f2cf1"
+      }
     }
   }
 }

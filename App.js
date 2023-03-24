@@ -3,7 +3,9 @@ import { useState, useEffect, useCallback } from "react"
 import * as Font from 'expo-font';
 import * as SplashScreen from 'expo-splash-screen';
 import Main from "./components/Main.js"
-import { View } from 'react-native';
+import { View} from 'react-native';
+
+
 
 SplashScreen.preventAutoHideAsync();
 
@@ -19,7 +21,7 @@ export default function App() {
     await Font.loadAsync({
         'Roboto-Bold': require('./assets/fonts/Roboto-Bold.ttf'),
         'Inter-Black': require('./assets/fonts/Inter-Black.otf'),
-        'RadicalFortuneDemoRegular-ZV1Jl': require('./assets/fonts/RadicalFortuneDemoRegular-ZV1Jl.otf'),
+          'RadicalFortuneDemoRegular-ZV1Jl': require('./assets/fonts/RadicalFortuneDemoRegular-ZV1Jl.otf'),
      })
         
         
@@ -55,7 +57,7 @@ export default function App() {
   return (
     <View
     style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}
-    onLayout={onLayoutRootView}>
+      onLayout={onLayoutRootView}>
     <Main/>
     </View>
   );

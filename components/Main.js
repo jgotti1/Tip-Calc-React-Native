@@ -2,15 +2,16 @@ import React from "react"
 import { useEffect } from "react";
 import { NativeBaseProvider, Checkbox, HStack, Button, Stack} from "native-base";
 import { StatusBar } from 'expo-status-bar';
-import { Text, View, TextInput, ImageBackground} from 'react-native';
+import { Text, View, TextInput, ImageBackground, TouchableOpacity, Linking } from 'react-native';
 import styles from "./styles.js"
 import { useState } from "react"
 import BillSplit from "./BillSplit";
 import TipPercent from "./TipPercent"
+import Constants from 'expo-constants';
 
 
 export default function Main() {
-
+  const version = Constants.manifest.version;
   const [amount, setAmount] = useState()
   const [tipPercentage, setTipPercentage] = useState(0)
   const [totalAmount, setTotalAmount] = useState(0.00)
@@ -66,11 +67,22 @@ export default function Main() {
   return (
     <>
     <NativeBaseProvider>
-      <ImageBackground style={styles.wrapper} source={require('../assets/bk.jpg')}>
-          <View style={styles.container}>
                     <StatusBar style="auto" />
-                    <Text style={styles.heading}>Tip Calculator</Text>
+        <ImageBackground style={styles.wrapper} source={require('../assets/bk.jpg')}>
+      <View>
+              {/* Version and copright link     */}
+                  <View style={styles.topLineContainer}>
+                      <Text style={styles.versionText}>{version}</Text>
+                      <View style={styles.copyright}>
+                        <TouchableOpacity onPress={() => Linking.openURL('https://portfolio.margottiworld.com/')}>
+                          <Text style={styles.linkText}>&#169; margotticode2023</Text>
+                        </TouchableOpacity>
+                      </View>
+                  </View>
+                {/* section end */}
+          <View style={styles.container}>
             <View style={styles.topcontainer}>
+                    <Text style={styles.heading}>Tip Calculator</Text>
                 <Text style={styles.title} >Bill Amount</Text>
                 <View style={styles.inputcontainer}>
                     <Text style={styles.$}>$</Text> 
@@ -83,30 +95,28 @@ export default function Main() {
                     <Text style={styles.tiptext}>Tip:</Text>
                   {/* <TextInput style={styles.tipAmount}>${tipAmount}</TextInput> */}
                   <Text style={styles.tipAmount}>${isNaN(tipAmount) ?  "0.00" : tipAmount}</Text>
-                <HStack space={2}>
+                <HStack space={1}>
                     <Checkbox value="true" onChange={handleRoundUp} accessibilityLabel="round up"  isChecked={roundUp} />
                   <Text>Round-up</Text>
               </HStack>
                 </View>
-                  <View style={styles.totalcontainer} >
+                  <View style={[styles.totalcontainer, split > 1 ? {marginTop: 20} : null]} >
                     <Text style={styles.totaltext}>Total:</Text>
                   <Text style={styles.totalAmount}> ${isNaN(totalAmount) ?  "0.00" : totalAmount}</Text>
-                  {/* <Text style={styles.totalAmount}> ${totalAmount}</Text> */}
                 </View>
                 </View>
             </View>
-                <Stack mb="-1" mt="5.99">
-                  <Button size="sm" variant="solid" colorScheme="green" rounded="lg" onPress={calculateBill}>
-                    Calculate
-                  </Button>
-                </Stack>
-          </View>    
-          {split > 1 && <Text style={styles.splittext}>Tip and Total are split x{split}</Text>}
-             <Stack mb="0" mt="10">
+  
+          {split > 1 && <Text style={styles.splittext}>Tip and Total are split into {split} checks</Text>}
+            </View>    
+            <View style={styles.resetContainer}>
+                <Stack mb="0" mt="30" justifyContent="center">
                   <Button size="sm" variant="outline" colorScheme="green" borderColor="green.500" rounded="lg" bg="white" onPress={handleReset}>
                     Reset Values
                   </Button>
                 </Stack>
+            </View>
+      </View>
         </ImageBackground>
     </NativeBaseProvider>
     </>
