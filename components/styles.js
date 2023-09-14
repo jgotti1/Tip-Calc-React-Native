@@ -194,10 +194,10 @@ const styles = StyleSheet.create({
 
   splittext: {
     fontFamily: "Inter-Black",
-    fontSize: 15,
-    color: "#333131",
+    fontSize: 18,
+    color: "#03571f",
     textShadowColor: "#fff",
-    textShadowRadius: 1,
+    textShadowRadius: 5,
     textShadowOffset: { width: -3, height: -2 },
     backgroundColor: "transparent",
     fontWeight: 'bold',
