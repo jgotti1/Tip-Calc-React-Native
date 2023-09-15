@@ -70,7 +70,7 @@ export default function Main() {
             <View style={styles.topLineContainer}>
               <Text style={styles.versionText}>{version}</Text>
               <View style={styles.copyright}>
-                <TouchableOpacity onPress={() => Linking.openURL("https://portfolio.margottiworld.com/")}>
+                <TouchableOpacity onPress={() => Linking.openURL("https://johnmargotti.com/")}>
                   <Text style={styles.linkText}>&#169; margotticode2023</Text>
                 </TouchableOpacity>
               </View>
