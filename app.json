@@ -2,7 +2,7 @@
   "expo": {
     "name": "Simple Tip-Calc",
     "slug": "SimpleTipCalc",
-    "version": "1.4.1",
+    "version": "1.4.2",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
@@ -13,7 +13,7 @@
     },
     "assetBundlePatterns": ["**/*"],
     "ios": {
-      "buildNumber": "1.4.1",
+      "buildNumber": "1.4.2",
       "supportsTablet": true,
       "bundleIdentifier": "com.Margotti.SimpleTipCalc"
     },
