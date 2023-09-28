@@ -10,7 +10,7 @@ import TipPercent from "./TipPercent";
 import Constants from "expo-constants";
 
 export default function Main() {
-  const version = Constants.manifest.version;
+  const version = Constants.expoConfig.ios.buildNumber
   const [amount, setAmount] = useState();
   const [tipPercentage, setTipPercentage] = useState(0);
   const [totalAmount, setTotalAmount] = useState(0.0);
